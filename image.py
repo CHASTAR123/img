@@ -1,0 +1,33 @@
+import cv2
+import numpy as np
+a = cv2.imread('images/banana.png', 1)
+print(a)
+cv2.imshow('showing', a)
+cv2.waitKey(0)
+
+a = cv2.imread('images/banana.png', cv2.IMREAD_GRAYSCALE)
+print(a)
+cv2.imshow('showing', a)
+cv2.waitKey(0)
+cv2.imwrite('banana1.png', a)
+
+#split imageb
+i = cv2.imread('images/fishstick-fortnite.webp', 1)
+cv2.imshow('fishstick', i)
+print(i.shape)
+cv2.waitKey(0)
+b,g,r = cv2.split(i)
+zeros = np.zeros_like(b)
+print(zeros)
+bimg = cv2.merge([b,zeros,zeros])
+cv2.imshow('bluesaturation', bimg)
+cv2.imwrite('blue.png', bimg)
+cv2.waitKey(0)
+gimg = cv2.merge([zeros,g,zeros])
+cv2.imshow('greensaturation', gimg)
+cv2.imwrite('blue.png', gimg)
+cv2.waitKey(0)
+rimg = cv2.merge([zeros,zeros,r])
+cv2.imshow('redsaturation', rimg)
+cv2.imwrite('blue.png', rimg)
+cv2.waitKey(0)
